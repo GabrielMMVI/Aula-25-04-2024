@@ -10,3 +10,9 @@ try {
 } catch (PDOException $e){
     echo "Failed to connect with database: ". $e->getMessage() .PHP_EOL;
 }
+$sql = "select * from users";
+$resultado = $con->query($sql);
+
+while ($linha = $resultado->fetch()){
+    echo "Nome: {$linha['name']} \t\t E-mail: {$linha['email']} \t\t Senha: {$linha['password']}".PHP_EOL;
+}
